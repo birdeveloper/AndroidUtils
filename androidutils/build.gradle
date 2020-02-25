@@ -1,0 +1,83 @@
+plugins { id 'digital.wup.android-maven-publish' version '3.6.2' }
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    androidExtensions { experimental = true }
+
+}
+
+ext {
+    anko_version = '0.10.8'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.assertj:assertj-core:3.8.0'
+
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha4', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
+    implementation 'com.google.android.material:material:1.0.0'
+
+    implementation 'com.squareup.retrofit2:retrofit:2.6.3'
+
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+
+    // check CustomImagePicker glides version before upgrading it as upgrading it without upgrading this lib cause crashes.
+    api 'com.github.bumptech.glide:glide:4.8.0'
+
+    api 'com.jakewharton.timber:timber:4.7.1'
+
+    api 'com.jakewharton.threetenabp:threetenabp:1.2.0'
+
+    api "org.jetbrains.anko:anko:$anko_version"
+    api "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
+
+    implementation 'com.github.searchy2:CustomImagePicker:2.2.1'
+    implementation 'gun0912.ted:tedonactivityresult:1.0.6'
+    implementation 'gun0912.ted:tedpermission:2.2.0'
+
+}
+
+group = 'com.github.birdeveloper'
+version = '1.10.7'
+
+publishing {
+    repositories {
+        //maven { url myMavenRepoWriteUrl }
+    }
+
+    publications {
+        mavenAar(MavenPublication) {
+            from components.android
+        }
+    }
+}
+repositories {
+    mavenCentral()
+}
