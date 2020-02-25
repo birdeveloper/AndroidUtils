@@ -38,6 +38,6 @@ dependencies {
 
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
 
-
-    implementation project(path: ':androidutils')
+    //implementation 'com.github.birdeveloper:androidutils:1.0'
+    //implementation project(path: ':androidutils')
 }

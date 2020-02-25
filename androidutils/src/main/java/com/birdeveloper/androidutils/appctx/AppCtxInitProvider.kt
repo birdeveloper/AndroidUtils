@@ -1,7 +1,7 @@
 package com.birdeveloper.androidutils.appctx
 
 import androidx.annotation.CallSuper
-import humazed.github.com.kotlinandroidutils.InitProvider
+import com.birdeveloper.androidutils.InitProvider
 
 /**
  * Initializes [appCtx] so it can be used where any [Context] can be used.
