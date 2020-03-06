@@ -10,8 +10,8 @@ android {
     defaultConfig {
         minSdkVersion 16
         targetSdkVersion 29
-        versionCode 1
-        versionName "1.0"
+        versionCode 1002
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -58,6 +58,9 @@ dependencies {
     api "org.jetbrains.anko:anko:$anko_version"
     api "org.jetbrains.anko:anko-appcompat-v7-commons:$anko_version"
 
+    //Onesignal SDK
+    //implementation 'com.onesignal:OneSignal:3.12.4'
+
     implementation 'com.github.searchy2:CustomImagePicker:2.2.1'
     implementation 'gun0912.ted:tedonactivityresult:1.0.6'
     implementation 'gun0912.ted:tedpermission:2.2.0'
@@ -65,7 +68,7 @@ dependencies {
 }
 
 group = 'com.github.birdeveloper'
-version = '1.10.7'
+version = '1.0.2'
 
 publishing {
     repositories {

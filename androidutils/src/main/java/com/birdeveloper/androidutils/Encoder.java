@@ -1,4 +1,4 @@
-package com.wstat.util;
+package com.birdeveloper.androidutils;
 
 
 
